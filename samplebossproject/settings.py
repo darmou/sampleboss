@@ -1,5 +1,7 @@
 # Django settings for samplebossproject project.
 
+TEST_RUNNER = 'scripts.testrunner.NoDbTestRunner'
+
 DEBUG = True 
 TEMPLATE_DEBUG = DEBUG
 
@@ -108,6 +110,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'bootstrap3',
+    'scripts',
     'djangobosssearch' )
 
 # A sample logging configuration. The only tangible logging performed by this configuration is to send an email to the site admins on every HTTP 500 error when DEBUG=False. See http://docs.djangoproject.com/en/dev/topics/logging for more details on how to 
