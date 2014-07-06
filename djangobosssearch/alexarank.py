@@ -14,11 +14,7 @@ class AlexaRank():
         try:
             data = urllib2.urlopen('http://data.alexa.com/data?cli=10&dat=snbamz&url=%s' % (url)).read()
             dom = parseString(data.strip())
-            
-            #f = open('/tmp/alexa', 'w')
-            #f.write("Data: " + str(data)+"/n")
-            #f.write(str(self._googlerank)  + "\n")
-            #f.close()
+
             
             reach_rank = re.findall("REACH[^\d]*(\d+)", data)
             if reach_rank: reach_rank = reach_rank[0]
