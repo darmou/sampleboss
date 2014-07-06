@@ -34,7 +34,7 @@ def bosssearch(request):
         if 'page-num' in request.POST and request.POST['page-num'].strip():
             page_obj = paginator.page(request.GET.get('page', request.POST['page-num']))
         else:
-            page_obj = paginator.page(request.GET.get('page', 1))
+            page_obj = paginator.page(request.GET.get('page', request.POST['page-num']))
         if request.is_ajax():
             return render(request, 'bosssearch/inclusion/results.html', {
                 'resultset': resultset,

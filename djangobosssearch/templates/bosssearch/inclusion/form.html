@@ -18,7 +18,7 @@
         {% csrf_token %}
         <input type="hidden" id="page-num" name="page-num" value="1">
         <div class="form-group">
-            <input name="q" value="{{ resultset.get_query }}">
+            <input id="query-fld" name="q" value="{{ resultset.get_query }}">
         </div>
         <p id="sendwrapper">
             <div class="form-group">

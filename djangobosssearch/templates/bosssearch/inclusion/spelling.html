@@ -2,7 +2,10 @@
 
 {% if resultset.spelling %}
 <h2>{% trans 'Did you mean:' %}
-    <em><a href="?q={{ resultset.spelling|urlencode }}">
+
+    <em><a onclick="event.preventDefault();jQuery('#query-fld').val('{{ resultset.spelling }}');jQuery('#bosssearchform').submit();" href="#">
         {{ resultset.spelling }}</a></em>?
+
+
 </h2>
 {% endif %}

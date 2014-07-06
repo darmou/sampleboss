@@ -14,7 +14,6 @@
       var form = jQuery("#bosssearchform");
       form.submit(function(e) {
           jQuery("#sendbutton").attr('disabled', true);
-          console.log(jQuery("#page-num").val());
           if (jQuery("#page-num").val() == 1) {
               jQuery("#next-btn").show();
               jQuery("#prev-btn").hide();

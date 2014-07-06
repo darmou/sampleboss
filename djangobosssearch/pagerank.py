@@ -76,13 +76,6 @@ class GoogleRank():
         pr = data.split(":")[-1].strip('\n')
         if len(pr) == 0 or status != 200:
             pr = '-1'
-            f = open('/tmp/pr', 'w')
-            f.write("Data: \n")
-            f.write(str(data))
-            f.write("URL\n")
-            f.write(url)
-            f.write("\n")
-            f.close()
         return pr
         
     def get_url(self, query):
