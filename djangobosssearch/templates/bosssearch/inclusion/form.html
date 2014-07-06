@@ -1,0 +1,31 @@
+
+{% load i18n %}
+{% load bootstrap3 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+<form role="form" action="{% url "bosssearch" %}" method="post" id="bosssearchform">
+    <div class="form-group">
+        <button id="prev-btn" style="display: none;" class="btn btn-primary btn-sm nav-btn" onClick="javascript: if (parseInt(jQuery('#page-num').val()) > 0) {jQuery('#page-num').val(parseInt(jQuery('#page-num').val())- 1)};submitForm()">&lt; Previous</button>
+        <button id="next-btn" style="display: none;" class="btn btn-primary btn-sm nav-btn" onClick="javascript: jQuery('#page-num').val(parseInt(jQuery('#page-num').val())+ 1);submitForm()">&gt; Next</button>
+    </div>
+
+    <div id="ajaxwrapper">
+        {% csrf_token %}
+        <input type="hidden" id="page-num" name="page-num" value="1">
+        <div class="form-group">
+            <input name="q" value="{{ resultset.get_query }}">
+        </div>
+        <p id="sendwrapper">
+            <div class="form-group">
+                <input type="submit" value="{% trans 'Search' %}" id="sendbutton" class="btn btn-default">
+            </div>
+        </p>
+    </div>
+</form>
+<div id="resultswrapper">
+</div>

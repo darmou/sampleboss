@@ -1,0 +1,29 @@
+
+
+
+{# Query #}
+{% include 'bosssearch/inclusion/query.html' %}
+
+ <table id="resultstable" border=0>
+{% for result in page_obj.object_list %}
+
+	 <tr>
+  <td valign="top"><strong>{{ result.index }}.</strong></td>
+  <td valign="top">
+  <a href="{{ result.url }}" target="_blank">{{ result.title|safe }}</a>
+  <span class="rankings">
+  	<span class="googlerank">
+		Google Rank: {{ result.googlerank|safe }}
+	</span>
+  	<span class="alexarank">
+		Alexa Rank: {{ result.alexarank|safe }}
+	</span>
+	
+  </span>
+  <p>{{ result.description|safe }}</p>
+  <p style="color: green">{{ result.display_url|safe }}</p>
+  </td>
+  </tr>
+  <tr style="max-height:5px;height 5px;"><td>&nbsp;</td><td>&nbsp;</td></tr>
+{% endfor %}
+</table>

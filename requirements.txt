@@ -1,0 +1,5 @@
+django==1.6.5
+pYsearch==3.1
+psycopg2==2.5.3
+oauth==1.0.1
+django-bootstrap3==4.7.0

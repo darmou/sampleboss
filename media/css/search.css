@@ -1,0 +1,32 @@
+span.alexarank {
+    color: green;
+    margin-left: 15px;
+    width: 150px;
+    text-align:left;
+	display: inline-block;
+	*display: inline;
+    *vertical-align: middle;
+    zoom: 1;
+}
+
+body {
+    margin-left: 10px !important;
+}
+
+.nav-btn {
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+.rankings {
+    position: absolute;
+    right: 0;
+	display: inline-block;
+	*display: inline;
+    *vertical-align: middle;
+    zoom: 1;
+
+}
+
+span.googlerank {
+    color: #83BDB0;
+}

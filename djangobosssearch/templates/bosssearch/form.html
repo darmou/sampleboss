@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="/media/css/search.css" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>BOSS Web Search</title>
+  <script type="text/javascript" 
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  /*<![CDATA[*/
+  jQuery(function() {
+      var form = jQuery("#bosssearchform");
+      form.submit(function(e) {
+          jQuery("#sendbutton").attr('disabled', true);
+          console.log(jQuery("#page-num").val());
+          if (jQuery("#page-num").val() == 1) {
+              jQuery("#next-btn").show();
+              jQuery("#prev-btn").hide();
+          } else {
+              jQuery(".nav-btn").show();
+          }
+          jQuery("#resultswrapper").html('');
+          jQuery("#sendwrapper").prepend('<span id="loader_text">Sending query, please wait... </span>');
+		  jQuery("#sendwrapper").prepend('<span id="loader_image" style="margin-left: 10px;margin-right: 10px;"><img src="/media/images/ajax-loader.gif"/></span>');
+          jQuery("#resultswrapper").load(
+              form.attr('action') + ' #resultswrapper',
+              form.serializeArray(),
+              function(responseText, responseStatus) {
+                  jQuery("#sendbutton").attr('disabled', false)
+                  jQuery("#resultswrapper").html(responseText)
+                  jQuery("#loader_text").remove();
+                  jQuery("#loader_image").remove();
+              }
+          );
+          e.preventDefault(); 
+      });
+  });
+  /*]]>*/
+  </script>
+</head>
+<body>
+  <h1>BOSS Web Search</h1>
+{% include 'bosssearch/inclusion/form.html' %}
+
+</body>
+</html>
+
