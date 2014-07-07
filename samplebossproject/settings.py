@@ -2,7 +2,7 @@
 
 TEST_RUNNER = 'scripts.testrunner.NoDbTestRunner'
 
-DEBUG = True 
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
